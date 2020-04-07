@@ -1,0 +1,21 @@
+// From help on #beagle on Freenode
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main()
+{
+  int fd = open( "/sys/class/gpio/gpio112/value", O_RDWR | O_CLOEXEC ); // Relay3 is gpio112 or P9_
+  if( fd < 0 ) {
+    fprintf( stderr, "open: %m\n" );
+    exit(1);
+  }
+
+  char c = '1'; // This '1' turns on Relay3 and if marked as '0', turns off Relay3
+  write( fd, &c, 1 );
+  close( fd );
+
+  return 0;
+}
