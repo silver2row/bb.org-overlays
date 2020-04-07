@@ -7,7 +7,7 @@
 
 int main()
 {
-  int fd = open( "/sys/class/gpio/gpio112/value", O_RDWR | O_CLOEXEC ); // Relay3 is gpio112 or P9_
+  int fd = open( "/sys/class/gpio/gpio112/value", O_RDWR | O_CLOEXEC ); // Relay3 is gpio112 or P9_30
   if( fd < 0 ) {
     fprintf( stderr, "open: %m\n" );
     exit(1);
